@@ -1,0 +1,79 @@
+[project]
+name = "ai25"
+version = "0.1.0"
+description = "Jupyter-based AI development environment"
+dependencies = [
+    # Jupyter & Dev Tools
+    "jupyterlab",
+    "jupyterlab-git",
+    "jupyterlab-lsp",
+    "python-lsp-server",
+    "widgetsnbextension",
+    "ipykernel",
+    "ipywidgets",
+    "black",
+    "isort",
+    "yapf",
+    "mypy",
+    "pylint",
+    "pre-commit",
+
+    # Core AI/ML
+    "numpy",
+    "scipy",
+    "pandas",
+    "matplotlib",
+    "seaborn",
+    "scikit-learn",
+    "xgboost",
+    "lightgbm",
+
+    # NLP, LLMs & Vector Databases
+    "spacy",
+    "nltk",
+    "langchain",
+    "langchain-community",
+    "llama-index",
+    "faiss-cpu",
+    "qdrant-client",
+    "chromadb",
+
+    # Cloud & API Clients
+    "boto3",
+    "botocore",
+    "google-api-python-client",
+    "google-auth",
+    "google-cloud-aiplatform",
+    "google-cloud-storage",
+    "openai",
+    "fastapi",
+    "uvicorn",
+    "requests",
+    "httpx",
+    "websockets",
+    "grpcio",
+
+    # Utility & Other Tools
+    "tqdm",
+    "joblib",
+    "pydantic",
+    "pyyaml",
+    "sqlalchemy",
+    "alembic",
+    "cryptography",
+    "docker",
+    "faker",
+
+    # Additional Tools
+    "jupyterlab_code_formatter",
+    "streamlit",
+    "pdfplumber",
+    "unstructured",
+    "crewai",
+    "crewai-tools",
+    "jupyterlab_widgets"
+]
+
+[build-system]
+requires = ["uv"]
+build-backend = "uv"
