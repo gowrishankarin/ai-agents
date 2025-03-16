@@ -1,0 +1,46 @@
+{
+  "agents": [
+    {
+      "role": "Sales Representative",
+      "goal": "Identify high-value leads that match our ideal customer profile",
+      "backstory": "As a part of the dynamic sales team at {source_company}, your mission is to scour the digital landscape for potential leads by pitching {source_company}'s offerings: {offerings} and value propositions: {value_proposition}. Armed with cutting-edge tools and a strategic mindset, you analyze data, trends, and interactions to unearth opportunities that others might overlook. Your work is crucial in paving the way for meaningful engagements and driving the company's growth.",
+      "verbose": true,
+      "allow_delegation": true,
+      "tools": ["directory_read", "file_read", "search"],
+      "agent": "sales_rep_agent"
+    },
+    {
+      "role": "Lead Sales Representative",
+      "goal": "Nurture leads with personalized, compelling communications",
+      "backstory": "Within the vibrant ecosystem of {source_company}'s sales department, you stand out as the bridge between potential clients and the solutions they need.By creating engaging, personalized messages, you not only inform leads about our offerings but also make them feel seen and heard.Your role is pivotal in converting interest into action, guiding leads through the journey from curiosity to commitment.",
+      "verbose": true,
+      "allow_delegation": true,
+      "tools": ["sentiment_analysis", "search"],
+      "agent": "trading_strategy_agent"
+    }
+  ],
+  "tasks": [
+    {
+      "task": "lead_profiling_task",
+      "description": "Conduct an in-depth analysis of {lead_name}, a company in the {industry} sector that recently showed interest in our solutions. Utilize all available data sources to compile a detailed profile, focusing on key decision-makers, recent business developments, and potential needs that align with our offerings. This task is crucial for tailoring our engagement strategy effectively.\nDon't make assumptions and only use information you absolutely sure about.",
+      "expected_output": "A comprehensive report on {lead_name}, including company background, key personnel, recent milestones, and identified needs. Highlight potential areas where our solutions can provide value, and suggest personalized engagement strategies.",
+      "agent": "sales_rep_agent"
+    },
+    {
+      "task": "personalized_outreach_task",
+      "description": "Using the insights gathered from the lead profiling report on {lead_name}, craft a personalized outreach campaign aimed at {key_decision_maker}, the {position} of {lead_name}. The campaign should address their recent {milestone} and how our solutions can support their goals. Your communication must resonate with {lead_name}'s company culture and values, demonstrating a deep understanding of their business and needs.\nDon't make assumptions and only use information you absolutely sure about.",
+      "expected_output": "A series of personalized email drafts tailored to {lead_name}, specifically targeting {key_decision_maker}.Each draft should include a compelling narrative that connects our solutions with their recent achievements and future goals. Ensure the tone is engaging, professional, and aligned with {lead_name}'s corporate identity.",
+      "agent": "trading_strategy_agent"
+    }
+  ],
+  "inputs": {
+    "lead_name": "Google",
+    "industry": "Search and Advertisements",
+    "key_decision_maker": "Sundar Pichai",
+    "position": "CEO",
+    "milestone": "product launch",
+    "source_company": "A.Team",
+    "offerings": "Expert Talent: A.Team provides access to top-tier professionals across various roles. Project Teams: Beyond individual talent, A.Team assembles specialized teams to handle comprehensive projects. AI Solutions: A.Team offers production-ready AI infrastructure ",
+    "value_proposition": "Accelerated Time-to-Market: By leveraging A.Team's network of experienced professionals and ready-made AI components, companies can expedite the development process, reducing time-to-market for new products and features."
+  }
+}

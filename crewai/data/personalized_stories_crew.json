@@ -1,0 +1,90 @@
+{
+  "agents": [
+    {
+      "role": "Research Analyst",
+      "goal": "Gather in-depth and accurate information about {lead_name} from various sources.",
+      "backstory": "The Research Analyst is responsible for collecting comprehensive data on the person for whom the story is being written. Use their {portfolio} site to know about them. They dive into professional achievements, personal interests, media mentions, social media activities, and any recent milestones. Their research forms the foundation for a compelling, well-informed narrative.",
+      "verbose": true,
+      "allow_delegation": true,
+      "tools": ["directory_read", "file_read", "search"],
+      "agent": "research_analyst_agent"
+    },
+    {
+      "role": "Personalization Validator",
+      "goal": "Ensure that the personal elements in the story are accurate and resonate with the {lead_name}’s personality, experiences, and background. Make sure the length of the story not exceed {word_count}",
+      "backstory": "The Personalization Validator acts as a fact-checker and authenticity enforcer. Their role is to review all personal details used in the story to confirm that they align with the target individual’s known characteristics, preferences, and public persona. They ensure that the personalization aspect is meaningful and not exaggerated or misrepresented. They use the {lead_name}'s {portfolio} site to achieve this. They also maintains the size of the story to {word_count} words",
+      "verbose": true,
+      "allow_delegation": true,
+      "tools": ["sentiment_analysis", "directory_read", "file_read", "search"],
+      "agent": "personalization_validator_agent"
+    },
+    {
+      "role": "Story Architect",
+      "goal": "Craft an engaging, well-structured narrative that aligns with the {lead_name}’s journey and personality",
+      "backstory": "The Story Architect is the creative mastermind responsible for transforming raw research from the Research Analyst into a compelling, inspirational story. They integrate facts, emotions, and storytelling techniques to present the individual’s journey in a way that captivates the audience. They must ensure that the story maintains a balance between professionalism and personal touch within the realm of {theme} provided. The story is based on the {theme} and the {plot} provided",
+      "verbose": true,
+      "allow_delegation": true,
+      "tools": ["sentiment_analysis", "directory_read", "file_read", "search"],
+      "agent": "story_architect_agent"
+    },
+    {
+      "role": "Team Coordinator",
+      "goal": "Oversee the workflow, ensure collaboration among team members, and manage deadlines",
+      "backstory": "The Team Coordinator acts as the glue that holds the project together. They are responsible for ensuring that each team member effectively contributes their expertise and that the process runs smoothly. They handle timelines, resolve bottlenecks, and maintain communication with stakeholders.",
+      "verbose": true,
+      "allow_delegation": true,
+      "tools": ["sentiment_analysis", "search"],
+      "agent": "team_coordinator_agent"
+    },
+    {
+      "role": "Emotional Strategist",
+      "goal": "Enhance the emotional depth of the story to ensure it resonates with the target individual and audience. Adhere to the {emotional_base} throughout the story",
+      "backstory": "The Emotional Strategist is responsible for infusing the story with the right emotions—whether it’s inspiration, nostalgia, triumph, or perseverance. They analyze the individual’s life journey to identify key emotional turning points and craft the story in a way that connects with the reader on a deeper level. Their role ensures that the story isn’t just informative but also evocative, leaving a lasting impact.",
+      "verbose": true,
+      "allow_delegation": true,
+      "tools": ["sentiment_analysis", "search", "directory_read", "file_read"],
+      "agent": "emotional_strategist_agent"
+    }
+  ],
+  "tasks": [
+    {
+      "task": "information_gathering_task",
+      "description": "The analyst must scour online and offline sources, such as news articles, interviews, podcasts, social media profiles, and official websites, to build a detailed profile of the individual. They must differentiate between useful insights and irrelevant data while maintaining ethical considerations regarding privacy.",
+      "expected_output": "A well-structured document that includes a detailed profile of the {lead_name}, covering career highlights, personal interests, values, and recent events in their life. This document should be factual, referenced, and categorized for easy access by the storytelling team.",
+      "agent": "research_analyst_agent"
+    },
+    {
+      "task": "fact_verification_task",
+      "description": "The validator cross-checks the facts presented in the story with the research data to ensure accuracy. They assess whether the personal anecdotes, references, and achievements mentioned are correct, updated, and relevant. Additionally, they evaluate the emotional and psychological accuracy of the narrative to confirm that it truly reflects the individual and align with {emotional_base} provided",
+      "expected_output": "A refined validation report that marks all personal elements as either \"Verified,\" \"Needs Refinement,\" or \"Inaccurate.\" They should also provide corrections and suggestions to enhance authenticity while preserving storytelling depth.",
+      "agent": "personalization_validator_agent"
+    },
+    {
+      "task": "story_crafting_task",
+      "description": "The Story Architect must weave the collected information into a seamless narrative. This involves setting the right tone, structuring the story in a logical flow, adding engaging elements such as anecdotes or challenges, and ensuring the story feels personal yet universally inspiring. They work closely with the validator to refine the story based on fact-checking.",
+      "expected_output": "A well-written, polished, and engaging story that highlights the individual’s achievements, struggles, and personal side in a way that resonates with the target audience. The final draft should be compelling, relatable, and factually accurate.",
+      "agent": "story_architect_agent"
+    },
+    {
+      "task": "team_management_task",
+      "description": "The coordinator assigns tasks, checks progress, and ensures alignment between research, validation, and storytelling. They are responsible for organizing meetings, setting deadlines, and keeping track of revisions. They also communicate with clients (if needed) to clarify requirements and expectations.",
+      "expected_output": "A well-organized workflow where tasks are completed efficiently, and the final story is delivered on time. They provide a summary report detailing the contributions of each team member, any challenges faced, and how they were addressed.",
+      "agent": "team_coordinator_agent"
+    },
+    {
+      "task": "emotional_layering_task",
+      "description": "Enhance the emotional depth of the story to ensure it resonates with the target individual and audience.",
+      "expected_output": "A refined emotional framework for the story that highlights key emotional beats—such as moments of hardship, resilience, joy, and success. This framework ensures that the narrative doesn’t feel mechanical but rather immersive and deeply personal, making the reader feel connected to the subject of the story.",
+      "agent": "emotional_strategist_agent"
+    }
+  ],
+  "inputs": {
+    "lead_name": "Raphael Ouzon, CEO of A.Team",
+    "industry": "Smart Sourcing",
+    "portfolio": "https://a.team",
+    "theme": "A super hero story compiling The power of resilience and self-discovery in the face of adversity.",
+    "plot": "A seemingly ordinary individual discovers an extraordinary ability and must navigate personal struggles, moral dilemmas, and a hidden past to protect a world that fears them.",
+    "emotional_base": "A journey of isolation, sacrifice, and ultimately finding belonging and purpose.",
+    "word_count": 1000
+  }
+}

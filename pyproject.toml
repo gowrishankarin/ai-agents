@@ -70,8 +70,11 @@ dependencies = [
     "pdfplumber",
     "unstructured",
     "crewai",
-    "crewai-tools",
-    "jupyterlab_widgets"
+    "crewai_tools",
+    "jupyterlab_widgets",
+    "databricks",
+    "databricks.sdk"
+   
 ]
 
 [build-system]
