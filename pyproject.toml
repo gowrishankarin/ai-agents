@@ -73,8 +73,19 @@ dependencies = [
     "crewai_tools",
     "jupyterlab_widgets",
     "databricks",
-    "databricks.sdk"
-   
+    "databricks.sdk",
+
+    # Web Agents & Automation
+    "playwright",
+    "tabulate",
+    "python-dotenv",
+    "multion",
+    "gradio",
+    "pickleshare",
+    "langsmith",
+    "instructor",
+    "litellm",
+    "igraph"
 ]
 
 [build-system]
