@@ -2,6 +2,7 @@
 name = "ai25"
 version = "0.1.0"
 description = "Jupyter-based AI development environment"
+requires-python = ">=3.12"
 dependencies = [
     # Jupyter & Dev Tools
     "jupyterlab",
@@ -17,6 +18,7 @@ dependencies = [
     "mypy",
     "pylint",
     "pre-commit",
+    "httpx",
 
     # Core AI/ML
     "numpy",
@@ -85,9 +87,31 @@ dependencies = [
     "langsmith",
     "instructor",
     "litellm",
-    "igraph"
+    "igraph",
+
+    # DB
+    "duckdb",
+
+    # Evals
+    "arize-phoenix-client",
+    "openinference-instrumentation",
+    "arize-phoenix-otel",
+    "arize-phoenix",
+    "openinference-instrumentation-openai",
+    "openinference-semantic-conventions",
+
+    # Middleware
+    "starlette",
+
+    # MCP
+    "mcp[cli]"
+
 ]
 
 [build-system]
-requires = ["uv"]
-build-backend = "uv"
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+# Explicitly control package discovery
+[tool.setuptools]
+packages = ["ai25"]

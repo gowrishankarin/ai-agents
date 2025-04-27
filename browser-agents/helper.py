@@ -64,7 +64,7 @@ async def visualizeBlogs(result, screenshot, target_url, instructions, base_url)
                     value = blog[header]
                     # If the field is "imageUrl", embed the image in the table cell
                     if header == "imageUrl":
-                        value = (f'<img src="{value}" alt="Blog Image" '
+                        value = (f'<img src=f"{base_url}/{value}" alt="Blog Image" '
                                  f'style="max-width:100px; height:auto;">')
                     elif isinstance(value, list):
                         value = ', '.join(value)
