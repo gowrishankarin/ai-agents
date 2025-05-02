@@ -36,6 +36,7 @@ dependencies = [
     "nltk",
     "langchain",
     "langchain-community",
+    "langchain-openai ",
     "langchain-core",
     "langchain-text-splitters",
     "llama-index",
