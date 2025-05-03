@@ -19,6 +19,7 @@ dependencies = [
     "pylint",
     "pre-commit",
     "httpx",
+    "docarray",
 
     # Core AI/ML
     "numpy",
@@ -127,7 +128,3 @@ dependencies = [
 [build-system]
 requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
-
-# # Explicitly control package discovery
-[tool.setuptools]
-packages = ["ai25"]
