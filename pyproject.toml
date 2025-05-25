@@ -40,6 +40,7 @@ dependencies = [
     "langchain-openai ",
     "langchain-core",
     "langchain-text-splitters",
+    "langchainhub",
     "llama-index",
     "faiss-cpu",
     "qdrant-client",
