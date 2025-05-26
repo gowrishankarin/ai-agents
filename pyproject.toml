@@ -40,6 +40,7 @@ dependencies = [
     "langchain-openai ",
     "langchain-core",
     "langchain-text-splitters",
+    "langchainhub",
     "llama-index",
     "faiss-cpu",
     "qdrant-client",
@@ -48,6 +49,7 @@ dependencies = [
     # Cloud & API Clients
     "boto3",
     "botocore",
+    "google-auth-oauthlib",
     "google-api-python-client",
     "google-auth",
     "google-cloud-aiplatform",
